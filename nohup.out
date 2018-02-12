@@ -1,0 +1,4 @@
+Laravel development server started: <http://0.0.0.0:8000>
+[Sun Jan 28 14:08:54 2018] 10.2.0.6:46356 [200]: /css/app.css
+[Sun Jan 28 14:08:54 2018] 10.2.0.6:46360 [200]: /js/app.js
+[Sun Jan 28 14:08:56 2018] 10.2.0.6:46411 [200]: /favicon.ico
