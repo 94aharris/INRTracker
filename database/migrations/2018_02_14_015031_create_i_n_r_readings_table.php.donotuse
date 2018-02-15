@@ -1,0 +1,33 @@
+<?php
+
+use Illuminate\Support\Facades\Schema;
+use Illuminate\Database\Schema\Blueprint;
+use Illuminate\Database\Migrations\Migration;
+
+class CreateINRReadingsTable extends Migration
+{
+    /**
+     * Run the migrations.
+     *
+     * @return void
+     */
+    public function up()
+    {
+        Schema::create('i_n_r_readings', function (Blueprint $table) {
+            $table->increments('ReadingId');
+            $table->integer('UserId');
+            $table->double('Reading_Value');
+            $table->timestamps('INR_Date');
+        });
+    }
+
+    /**
+     * Reverse the migrations.
+     *
+     * @return void
+     */
+    public function down()
+    {
+        Schema::dropIfExists('i_n_r_readings');
+    }
+}

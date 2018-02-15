@@ -39,7 +39,7 @@ class Login extends React.Component {
           var uploadScreen = [];
           uploadScreen.push()
           self.props.appContext.setState({ loginPage: [], uploadScreen: uploadScreen })
-          this.props.history.push('/path')
+          this.props.history.push('/home')
         }
         else if (response.status == 401) {
           console.log("Email and or Password is Incorrect");
@@ -119,10 +119,8 @@ class Login extends React.Component {
 
               </Paper>
               <Paper style={paper} zDepth={3} rounded={false} style={paperRegister}>
-                <div style = {style}>
                 <p>Please log in with your username and e-mail to the left.  First time users may register by clicking the button below.
                   A valid e-mail address will be required.</p>
-                 </div>
 
                 <RaisedButton label="Register" fullWidth={true} onClick={(event) => this.registerUser(event)}/>
 

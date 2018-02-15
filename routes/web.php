@@ -10,23 +10,37 @@
 | contains the "web" middleware group. Now create something great!
 |
 */
+Route::group(['middleware' => ['auth']], function() {
+    //Put routes here that should redirect to the login page if the user is not logged in
+});
 
+//View Routes
 Route::get('/', function () {
     return view('welcome');
 });
 
+//Home Controller Route
+Route::get('/home', 'HomeController@index')->name('home');
+
+//Test Pages, Delete Later
 Route::get('/react',function() {
   return view('reacttest');
 });
+Route::get('readingstest', 'INRReadingController@testShowUser');
 
-Route::get('/logintest',function() {
-  return view('logintest');
-});
+//Routes for INRReadings
+Route::get('readings', 'INRReadingController@showuser');
+Route::post('readings', array('as' => 'readings', 'uses' => 'INRReadingController@store'));
 
-Route::get('/test','TestController@index')->name('test');
+//Routes for INRBounds
+Route::get('bounds', 'INRBoundsController@index');
+Route::post('bounds', array('as' => 'bounds', 'uses' => 'INRBoundsController@update'));
+Route::get('boundstest', 'INRBoundsController@indextest');
+Route::post('boundstest', array('as' => 'boundstest', 'uses' => 'INRBoundsController@updatetest'));
 
-Auth::routes();
 // Authentication Routes...
+Auth::routes();
+
 //$this->get('login', 'Auth\LoginController@showLoginForm')->name('login');
 //$this->post('login', 'Auth\LoginController@login');
 //$this->post('logout', 'Auth\LoginController@logout')->name('logout');
@@ -40,5 +54,3 @@ Auth::routes();
 //$this->post('password/email', 'Auth\ForgotPasswordController@sendResetLinkEmail');
 //$this->get('password/reset/{token}', 'Auth\ResetPasswordController@showResetForm');
 //$this->post('password/reset', 'Auth\ResetPasswordController@reset');
-
-Route::get('/home', 'HomeController@index')->name('home');

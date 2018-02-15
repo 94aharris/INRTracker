@@ -15,6 +15,48 @@
                     @endif
 
                     You are logged in!
+                  <li>
+                    <a href="{{ route('logout') }}"
+                        onclick="event.preventDefault();
+                                 document.getElementById('logout-form').submit();">
+                        Logout
+                    </a>
+
+                    <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">
+                        {{ csrf_field() }}
+                    </form>
+                 </li>
+                  <h3>
+                    Reading Test Form
+                  </h3>
+                  <form id="reading-form" action="{{ route('readings')}}" method="POST">
+                    {{csrf_field()}}
+                      Reading<br>
+                      <input type="number" name="INR_Reading"><br>
+                      Date<br>
+                      <input type="date" name="Reading_Date"><br>
+                      <input type="submit" value="Submit"> 
+                  </form>
+                  
+                  <h3>
+                    INRBounds Test Form
+                  </h3>
+                  <form id="reading-form" action="{{ route('bounds')}}" method="POST">
+                    {{csrf_field()}}
+                      UpperBound<br>
+                      <input type="number" name="UpperBound"><br>
+                      LowerBound<br>
+                      <input type="number" name="LowerBound"><br>
+                      <input type="submit" value="Submit"> 
+                  </form>
+                  
+                  <h3>
+                    Medication Test Form
+                  </h3>
+                  
+                  <h3>
+                    Medical Event Test Form
+                  </h3>
                 </div>
             </div>
         </div>
