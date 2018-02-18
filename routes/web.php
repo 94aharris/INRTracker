@@ -31,12 +31,21 @@ Route::get('readingstest', 'INRReadingController@testShowUser');
 //Routes for INRReadings
 Route::get('readings', 'INRReadingController@showuser');
 Route::post('readings', array('as' => 'readings', 'uses' => 'INRReadingController@store'));
+Route::post('readingstest', array('as' => 'readingstest', 'uses' => 'INRReadingController@storetest'));
 
 //Routes for INRBounds
 Route::get('bounds', 'INRBoundsController@index');
 Route::post('bounds', array('as' => 'bounds', 'uses' => 'INRBoundsController@update'));
 Route::get('boundstest', 'INRBoundsController@indextest');
 Route::post('boundstest', array('as' => 'boundstest', 'uses' => 'INRBoundsController@updatetest'));
+
+//Medication Types
+Route::get('medications', 'MedicationTypeController@show');
+Route::post('medicationdose',array('as' => 'medicationdose', 'uses' => 'MedicationDoseController@store'));
+//Medical Event Types
+Route::get('medicalevents','MedicalEventTypeController@show');
+Route::post('medicalevent',array('as' => 'medicalevent', 'uses' => 'MedicalEventController@store'));
+
 
 // Authentication Routes...
 Auth::routes();

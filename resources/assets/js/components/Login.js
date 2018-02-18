@@ -78,8 +78,7 @@ class Login extends React.Component {
       width: 400,
       margin: 20,
       textAlign: 'center',
-      display: 'inline-block',
-      float: 'center'
+      display: 'inline-block'
     };
 
     const paperRegister = {
@@ -87,9 +86,13 @@ class Login extends React.Component {
       width: 500,
       margin: 20,
       textAlign: 'center',
-      display: 'inline-block',
-      float: `center`
+      display: 'inline-block'
     };
+    
+    const paperBlock = {
+      textAlign: `center`,
+      float: 'center'
+    }
 
     return (
       <div>
@@ -99,7 +102,10 @@ class Login extends React.Component {
               title="INR Tracker"
               style={appBarColor}
             />
-            <div>
+            <table>
+             <tbody>
+             <tr>
+             <td style={paperBlock}>
               <Paper style={paper} zDepth={3} rounded={false}>
                 <h1 style={style}>Login</h1>
                 <TextField
@@ -116,16 +122,21 @@ class Login extends React.Component {
                 />
                 <br />
                 <RaisedButton label="Login" defualt={true} style={style} onClick={(event) => this.handleClick(event)}/>
-
               </Paper>
+              </td>
+          
+              <td>
               <Paper style={paper} zDepth={3} rounded={false} style={paperRegister}>
                 <p>Please log in with your username and e-mail to the left.  First time users may register by clicking the button below.
                   A valid e-mail address will be required.</p>
 
                 <RaisedButton label="Register" fullWidth={true} onClick={(event) => this.registerUser(event)}/>
-
               </Paper>
-            </div>
+              </td>
+              </tr>  
+              </tbody>
+            </table>
+                  
           </div>
         </MuiThemeProvider>
       </div>

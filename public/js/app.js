@@ -56461,8 +56461,7 @@ var Login = function (_React$Component) {
         width: 400,
         margin: 20,
         textAlign: 'center',
-        display: 'inline-block',
-        float: 'center'
+        display: 'inline-block'
       };
 
       var paperRegister = {
@@ -56470,7 +56469,11 @@ var Login = function (_React$Component) {
         width: 500,
         margin: 20,
         textAlign: 'center',
-        display: 'inline-block',
+        display: 'inline-block'
+      };
+
+      var paperBlock = {
+        textAlign: 'center',
         float: 'center'
       };
 
@@ -56488,48 +56491,64 @@ var Login = function (_React$Component) {
               style: appBarColor
             }),
             __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
-              'div',
+              'table',
               null,
               __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
-                __WEBPACK_IMPORTED_MODULE_6_material_ui_Paper___default.a,
-                { style: paper, zDepth: 3, rounded: false },
+                'tbody',
+                null,
                 __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
-                  'h1',
-                  { style: style },
-                  'Login'
-                ),
-                __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(__WEBPACK_IMPORTED_MODULE_4_material_ui_TextField___default.a, {
-                  hintText: 'Enter your Email',
-                  floatingLabelText: 'Email',
-                  onChange: function onChange(event, newValue) {
-                    return _this2.setState({ email: newValue });
-                  }
-                }),
-                __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement('br', null),
-                __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(__WEBPACK_IMPORTED_MODULE_4_material_ui_TextField___default.a, {
-                  type: 'password',
-                  hintText: 'Enter your Password',
-                  floatingLabelText: 'Password',
-                  onChange: function onChange(event, newValue) {
-                    return _this2.setState({ password: newValue });
-                  }
-                }),
-                __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement('br', null),
-                __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(__WEBPACK_IMPORTED_MODULE_3_material_ui_RaisedButton___default.a, { label: 'Login', defualt: true, style: style, onClick: function onClick(event) {
-                    return _this2.handleClick(event);
-                  } })
-              ),
-              __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
-                __WEBPACK_IMPORTED_MODULE_6_material_ui_Paper___default.a,
-                _defineProperty({ style: paper, zDepth: 3, rounded: false }, 'style', paperRegister),
-                __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
-                  'p',
+                  'tr',
                   null,
-                  'Please log in with your username and e-mail to the left.  First time users may register by clicking the button below. A valid e-mail address will be required.'
-                ),
-                __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(__WEBPACK_IMPORTED_MODULE_3_material_ui_RaisedButton___default.a, { label: 'Register', fullWidth: true, onClick: function onClick(event) {
-                    return _this2.registerUser(event);
-                  } })
+                  __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
+                    'td',
+                    { style: paperBlock },
+                    __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
+                      __WEBPACK_IMPORTED_MODULE_6_material_ui_Paper___default.a,
+                      { style: paper, zDepth: 3, rounded: false },
+                      __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
+                        'h1',
+                        { style: style },
+                        'Login'
+                      ),
+                      __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(__WEBPACK_IMPORTED_MODULE_4_material_ui_TextField___default.a, {
+                        hintText: 'Enter your Email',
+                        floatingLabelText: 'Email',
+                        onChange: function onChange(event, newValue) {
+                          return _this2.setState({ email: newValue });
+                        }
+                      }),
+                      __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement('br', null),
+                      __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(__WEBPACK_IMPORTED_MODULE_4_material_ui_TextField___default.a, {
+                        type: 'password',
+                        hintText: 'Enter your Password',
+                        floatingLabelText: 'Password',
+                        onChange: function onChange(event, newValue) {
+                          return _this2.setState({ password: newValue });
+                        }
+                      }),
+                      __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement('br', null),
+                      __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(__WEBPACK_IMPORTED_MODULE_3_material_ui_RaisedButton___default.a, { label: 'Login', defualt: true, style: style, onClick: function onClick(event) {
+                          return _this2.handleClick(event);
+                        } })
+                    )
+                  ),
+                  __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
+                    'td',
+                    null,
+                    __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
+                      __WEBPACK_IMPORTED_MODULE_6_material_ui_Paper___default.a,
+                      _defineProperty({ style: paper, zDepth: 3, rounded: false }, 'style', paperRegister),
+                      __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
+                        'p',
+                        null,
+                        'Please log in with your username and e-mail to the left.  First time users may register by clicking the button below. A valid e-mail address will be required.'
+                      ),
+                      __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(__WEBPACK_IMPORTED_MODULE_3_material_ui_RaisedButton___default.a, { label: 'Register', fullWidth: true, onClick: function onClick(event) {
+                          return _this2.registerUser(event);
+                        } })
+                    )
+                  )
+                )
               )
             )
           )

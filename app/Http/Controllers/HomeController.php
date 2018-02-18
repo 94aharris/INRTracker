@@ -3,6 +3,10 @@
 namespace INRTracker\Http\Controllers;
 
 use Illuminate\Http\Request;
+use INRTracker\MedicationType;
+use INRTracker\MedicalEventType;
+use View;
+use Auth;
 
 class HomeController extends Controller
 {
@@ -23,6 +27,10 @@ class HomeController extends Controller
      */
     public function index()
     {
-        return view('home');
+        $medications = MedicationType::all();
+        $medicalevents = MedicalEventType::all();
+        $firstname = Auth::user()->firstname;
+        $lastname = Auth::user()->lastname;
+        return View::make('home',compact('medications','medicalevents','firstname','lastname'));
     }
 }

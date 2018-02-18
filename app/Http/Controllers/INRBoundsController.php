@@ -5,6 +5,7 @@ namespace INRTracker\Http\Controllers;
 use Illuminate\Http\Request;
 use INRTracker\INRBounds;
 use Auth;
+use Validator;
 
 class INRBoundsController extends Controller
 {
@@ -34,6 +35,18 @@ class INRBoundsController extends Controller
         if(Auth::check())
         {
           $UserId = Auth::user()->id;
+          
+          // Validation Documentation https://laravel.com/docs/5.6/validation 
+          $validator = Validator::make($request->all(), [
+              'UpperBound' => 'required|integer|min:0|max:99',
+              'LowerBound' => 'required|integer|min:0|max:99'
+          ]);
+
+          // Modify to iterate through all the errors
+          if ($validator->fails()) {
+              return response()->json($validator->errors(),400);
+          }
+          
           $bounds = INRBounds::updateOrCreate(
               ['UserId'=>$UserId], ['UpperBound'=>$request->UpperBound,'LowerBound'=>$request->LowerBound]
            );
