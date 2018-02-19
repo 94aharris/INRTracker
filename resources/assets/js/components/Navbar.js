@@ -7,12 +7,32 @@ import RaisedButton from 'material-ui/RaisedButton';
 import TextField from 'material-ui/TextField';
 import { render } from 'react-dom';
 import Paper from 'material-ui/Paper';
+import Drawer from 'material-ui/Drawer';
+import MenuItem from 'material-ui/MenuItem';
 
 class Navbar extends React.Component {
   constructor(props) {
-    super(props);
+    super(props); 
+      this.state = {
+      open: false
+    };
+    
+    this.handleToggle = this.handleToggle.bind(this);
+    this.handleClose = this.handleClose.bind(this);
+
+
   }
   
+ 
+  handleToggle() {
+    this.setState({ open: !this.state.open});
+  }
+  
+
+  handleClose() {
+    this.setState({ open: false});
+  }
+ 
   render() {
     const style = {
       margin: 12,
@@ -22,33 +42,25 @@ class Navbar extends React.Component {
       backgroundColor: '#92b2e5'
     }
 
-    const paper = {
-      height: 400,
-      width: 400,
-      margin: 20,
-      textAlign: 'center',
-      display: 'inline-block',
-      float: 'center'
-    };
-
-    const paperRegister = {
-      height: 400,
-      width: 500,
-      margin: 20,
-      textAlign: 'center',
-      display: 'inline-block',
-      float: `center`
-    };
+   
 
     return (
       <div>
         <MuiThemeProvider>
-          <div>
+        
             <AppBar
               title="INR Tracker"
               style={appBarColor}
-            />
-          </div>
+              onClick = {this.handleToggle}
+            >
+              
+            <Drawer open = {this.state.open}>
+              <MenuItem onClick={this.handleClose}>INR Home Icon will be hear</MenuItem>
+              <MenuItem onClick={this.handleClose}>Another Icon will be hear too</MenuItem>
+            </Drawer>
+      
+      </AppBar>
+          
         </MuiThemeProvider>
       </div>
     )

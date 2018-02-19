@@ -1,5 +1,3 @@
-
-
 import React from 'react';
 import MuiThemeProvider from 'material-ui/styles/MuiThemeProvider';
 import AppBar from 'material-ui/AppBar';
@@ -8,6 +6,7 @@ import TextField from 'material-ui/TextField';
 import { render } from 'react-dom';
 //import axios from 'react-axios'
 import Paper from 'material-ui/Paper';
+import Navbar from './Navbar.js'
 
 class Login extends React.Component {
   constructor(props) {
@@ -61,6 +60,10 @@ class Login extends React.Component {
   registerUser(event) {
     window.location = '/register';
   }
+  
+  homePage(event) {
+    window.location = '/home';
+  }
 
 
 
@@ -70,7 +73,8 @@ class Login extends React.Component {
     };
 
     const appBarColor = {
-      backgroundColor: '#92b2e5'
+      backgroundColor: '#92b2e5',
+      showMenuIconButton: false,
     }
 
     const paper = {
@@ -89,23 +93,18 @@ class Login extends React.Component {
       display: 'inline-block'
     };
     
-    const paperBlock = {
-      textAlign: `center`,
-      float: 'center'
+    const centerText = {
+      top: 'flex',
+      textAlign: 'center'
     }
 
     return (
       <div>
         <MuiThemeProvider>
           <div>
-            <AppBar
-              title="INR Tracker"
-              style={appBarColor}
-            />
-            <table>
-             <tbody>
-             <tr>
-             <td style={paperBlock}>
+            <Navbar/>
+      
+     
               <Paper style={paper} zDepth={3} rounded={false}>
                 <h1 style={style}>Login</h1>
                 <TextField
@@ -121,21 +120,16 @@ class Login extends React.Component {
                   onChange={(event, newValue) => this.setState({ password: newValue })}
                 />
                 <br />
-                <RaisedButton label="Login" defualt={true} style={style} onClick={(event) => this.handleClick(event)}/>
+                <RaisedButton label="Login" style={style} onClick={(event) => this.handleClick(event)}/>
               </Paper>
-              </td>
-          
-              <td>
-              <Paper style={paper} zDepth={3} rounded={false} style={paperRegister}>
-                <p>Please log in with your username and e-mail to the left.  First time users may register by clicking the button below.
+
+              <Paper style={paperRegister} zDepth={3} rounded={false} style={paperRegister}>
+                <p style={centerText}>
+                  Please log in with your username and e-mail to the left.  First time users may register by clicking the button below.
                   A valid e-mail address will be required.</p>
 
                 <RaisedButton label="Register" fullWidth={true} onClick={(event) => this.registerUser(event)}/>
               </Paper>
-              </td>
-              </tr>  
-              </tbody>
-            </table>
                   
           </div>
         </MuiThemeProvider>

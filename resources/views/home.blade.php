@@ -1,5 +1,7 @@
 @extends('layouts.app') @section('content')
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+<script src="https://cdn.plot.ly/plotly-latest.min.js"></script>
+<script src="{!! asset('js/userdata.js')!!}"></script>
 <script type="text/javascript" src="{!! asset('js/homeforms.js') !!}"></script>
 <div class="text-center">
   <h3>
@@ -19,7 +21,16 @@
     <div class="col-md-6 col-md-offset-0">
       <div class="panel panel-default">
         <div class="panel-body">
-          <img src="http://imonitormy.com/wp-content/uploads/2014/12/graph-INR-example1.png" alt="Test Graph">
+          <div id="userGraph">
+   
+          </div>
+          <!--<img src="http://imonitormy.com/wp-content/uploads/2014/12/graph-INR-example1.png" alt="Test Graph"> -->
+          <script>
+            Plotly.plot('userGraph', getGraphData(), getGraphLayout());
+            window.onresize = function() {
+              Plotly.Plots.resize(Plotly.d3.select('#userGraph').node());
+            };
+  </script>
         </div>
       </div>
     </div>
