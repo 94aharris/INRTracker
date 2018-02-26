@@ -22,6 +22,9 @@ Route::get('/', function () {
 //Home Controller Route
 Route::get('/home', 'HomeController@index')->name('home');
 
+//History Controller Route
+Route::get('/history', "HistoryController@index")->name('history');
+
 //Test Pages, Delete Later
 Route::get('/react',function() {
   return view('reacttest');

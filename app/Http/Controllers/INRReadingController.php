@@ -39,7 +39,8 @@ class INRReadingController extends Controller
       if (Auth::check())
       {
         $userid = Auth::user()->id;
-        return response()->json(INRReading::where('UserId','LIKE',$userid)->get(), 200);
+        $data = INRReading::where('UserId','LIKE',$userid)->orderBy('Reading_Date')->get();
+        return response()->json($data, 200);
       }
       
       // Return error back to user if not logged in
