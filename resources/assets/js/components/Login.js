@@ -19,6 +19,15 @@ class Login extends React.Component {
     };
 
   }
+    
+  registerUser(event) {
+    window.location = '/register';
+  }
+  
+  handleHome() {
+    window.location = '/home';
+  }
+  
   handleClick(event) {
     //removed base URL not needed
     //var apiBaseUrl = "http://0.0.0.0/";
@@ -36,7 +45,7 @@ class Login extends React.Component {
         // modified from response.data.code to response.status
         if (response.status == 200) {
           console.log("Login successfull");
-          alert("Login Successful");
+          window.location = '/home';
           var uploadScreen = [];
           uploadScreen.push()
           self.props.appContext.setState({ loginPage: [], uploadScreen: uploadScreen })
@@ -57,14 +66,6 @@ class Login extends React.Component {
           alert("Email and or Password is Incorrect");
         }
       });
-  }
-  
-  registerUser(event) {
-    window.location = '/register';
-  }
-  
-  homePage(event) {
-    window.location = '/home';
   }
 
 
@@ -92,47 +93,46 @@ class Login extends React.Component {
       width: 500,
       margin: 20,
       textAlign: 'center',
-      display: 'inline-block'
+      display: 'inline-block',
+      position: 'relative',
     };
-    
-    const centerText = {
-      top: 'flex',
-      textAlign: 'center'
-    }
 
     return (
       <div>
         <MuiThemeProvider>
           <div>
             <Navbar/>
-      
-     
-              <Paper style={paper} zDepth={3} rounded={false}>
-                <h1 style={style}>Login</h1>
-                <TextField
-                  hintText="Enter your Email"
-                  floatingLabelText="Email"
-                  onChange={(event, newValue) => this.setState({ email: newValue })}
-                />
-                <br />
-                <TextField
-                  type="password"
-                  hintText="Enter your Password"
-                  floatingLabelText="Password"
-                  onChange={(event, newValue) => this.setState({ password: newValue })}
-                />
-                <br />
-                <RaisedButton label="Login" style={style} onClick={(event) => this.handleClick(event)}/>
-              </Paper>
+            <table style={{textAlign: 'center', display: 'inline-block'}}>
+              <tbody>
+                <tr>
+                  <td><Paper style={paper} zDepth={3} rounded={false}>
+                    <h1 style={style}>Login</h1>
+                    <TextField
+                      hintText="Enter your Email"
+                      floatingLabelText="Email"
+                      onChange={(event, newValue) => this.setState({ email: newValue })}
+                    />
+                    <br />
+                    <TextField
+                      type="password"
+                      hintText="Enter your Password"
+                      floatingLabelText="Password"
+                      onChange={(event, newValue) => this.setState({ password: newValue })}
+                    />
+                    <br />
+                    <RaisedButton label="Login" style={style} onClick={(event) => this.handleClick(event)}/>
+                  </Paper></td>
 
-              <Paper style={paperRegister} zDepth={3} rounded={false} style={paperRegister}>
-                <p style={centerText}>
-                  Please log in with your username and e-mail to the left.  First time users may register by clicking the button below.
-                  A valid e-mail address will be required.</p>
-
-                <RaisedButton label="Register" fullWidth={true} onClick={(event) => this.registerUser(event)}/>
-              </Paper>
-                  
+                  <td><Paper style={paperRegister} zDepth={3} rounded={false} style={paperRegister}>
+                    <div style={{position: 'absolute', marginTop: '50%'}}>
+                      Please log in with your username and e-mail to the left.  First time users may register by clicking the button below.
+                      A valid e-mail address will be required.
+                      <RaisedButton label="Register" fullWidth={true} onClick={(event) => this.registerUser(event)}/>
+                    </div>
+                  </Paper></td>
+                </tr>
+              </tbody>
+            </table>
           </div>
         </MuiThemeProvider>
       </div>

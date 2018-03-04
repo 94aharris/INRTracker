@@ -1,5 +1,3 @@
-
-
 import React from 'react';
 import MuiThemeProvider from 'material-ui/styles/MuiThemeProvider';
 import AppBar from 'material-ui/AppBar';
@@ -33,6 +31,23 @@ class Navbar extends React.Component {
  
   handleToggle() {
     this.setState({ open: !this.state.open});
+  }
+  
+  handleHistory() {
+    window.location = '/history';
+  }
+  
+  handleHome() {
+    window.location = '/home';
+  }
+  
+  handleFood() {
+    window.location = '/fooddashboard';
+  }
+  
+  handleLogout() {
+    event.preventDefault();
+    document.getElementById('logout-form').submit();
   }
   
 
@@ -93,8 +108,14 @@ class Navbar extends React.Component {
             >
                <Toolbar style={appBarColor}>
                 <ToolbarGroup>
-                <RaisedButton  style={appBarColor} label="Level" primary={true} />
-                <RaisedButton  style={appBarColor} label="MyINR" primary={true} />
+                <RaisedButton  style={appBarColor} label="Home" primary={true} 
+                  onClick = {this.handleHome}/>
+                <RaisedButton  style={appBarColor} label="History" primary={true} 
+                  onClick = {this.handleHistory}/>
+                <RaisedButton  style={appBarColor} label="Food" primary={true} 
+                  onClick = {this.handleFood}/>
+                <RaisedButton  style={appBarColor} label="Logout" primary={true} 
+                  onClick = {this.handleLogout}/>
               </ToolbarGroup>
 
               </Toolbar>

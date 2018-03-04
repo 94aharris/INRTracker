@@ -28,9 +28,9 @@
 		<script src="{{mix('js/app.js')}}"></script>
 		<script type="text/javascript" src="{!! asset('js/homeforms.js') !!}"></script>
 
-			<!--React Elements Div -->
-			<div id="reacthome"></div>
-			<script src="{{mix('js/app.js')}}"></script>
+		<!--React Elements Div -->
+		<div id="reacthome"></div>
+		<script src="{{mix('js/app.js')}}"></script>
 
 
 
@@ -83,18 +83,12 @@
 		</div>
 	</div>
 	<div class="text-center">
-	<!--Logout Section -->
-			<h3>
-				Dashboard (
-				<a href="{{ route('logout') }}" onclick="event.preventDefault();
-                                 document.getElementById('logout-form').submit();">
-                        Logout
-     </a>
-				<form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">
-					{{ csrf_field() }}
-				</form>
-				)
-			</h3>
+
+
+		<!--Logout Section -->
+		<form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">
+			{{ csrf_field() }}
+		</form>
 	</div>
 
 	<!-- Scripts -->
