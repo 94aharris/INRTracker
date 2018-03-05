@@ -112466,9 +112466,7 @@ var MedCardList = function (_React$Component) {
         }
       }).catch(function (error) {
         console.log(error);
-        if (error.response.status == 401) {
-          alert("Error During Submission");
-        }
+        alert("Error During Submission");
       });
     }
   }, {
@@ -112570,9 +112568,7 @@ var MedCardInput = function (_React$Component2) {
         }
       }).catch(function (error) {
         console.log(error);
-        if (error.response.status == 401) {
-          alert("Error During Submission");
-        }
+        alert("Error During Submission");
       });
     }
   }, {
@@ -117871,9 +117867,8 @@ var INRReading = function (_React$Component) {
         }
       }).catch(function (error) {
         console.log(error);
-        if (error.response.status == 401) {
-          alert("Error During Submission");
-        }
+        alert("Error During Submission");
+        alert(error);
       });
     }
   }, {
@@ -118216,9 +118211,7 @@ var MedicalEvent = function (_React$Component) {
         }
       }).catch(function (error) {
         console.log(error);
-        if (error.response.status == 401) {
-          alert("Error During Submission");
-        }
+        alert("Error During Submission");
       });
     }
   }, {
