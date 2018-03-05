@@ -38,8 +38,8 @@ class INRBoundsController extends Controller
           
           // Validation Documentation https://laravel.com/docs/5.6/validation 
           $validator = Validator::make($request->all(), [
-              'UpperBound' => 'required|integer|min:0|max:99',
-              'LowerBound' => 'required|integer|min:0|max:99'
+              'UpperBound' => 'required|min:0|max:99',
+              'LowerBound' => 'required|min:0|max:99'
           ]);
 
           // Modify to iterate through all the errors
@@ -57,15 +57,59 @@ class INRBoundsController extends Controller
         
     }
   
-  //Test Function
-  public function updatetest(Request $request)
-  {
+  // Need to create validator...  
+  public function updateLower(Request $request)
+    {
     
-          $UserId = 1;
+        if(Auth::check())
+        {
+          $UserId = Auth::user()->id;
+          
+          // Validation Documentation https://laravel.com/docs/5.6/validation 
+          $validator = Validator::make($request->all(), [
+              'LowerBound' => 'required|min:0|max:99'
+          ]);
+
+          // Modify to iterate through all the errors
+          if ($validator->fails()) {
+              return response()->json($validator->errors(),400);
+          }
+          
           $bounds = INRBounds::updateOrCreate(
-              ['UserId'=>$UserId], ['UpperBound'=>$request->UpperBound,'LowerBound'=>$request->LowerBound]
+              ['UserId'=>$UserId], ['LowerBound'=>$request->LowerBound]
            );
           return response()->json($bounds, 201);
+        }
         
-  }
+        return response('Not Logged In',403);
+        
+    }
+  
+  public function updateUpper(Request $request)
+    {
+    
+        if(Auth::check())
+        {
+          $UserId = Auth::user()->id;
+          
+          // Validation Documentation https://laravel.com/docs/5.6/validation 
+          $validator = Validator::make($request->all(), [
+              'UpperBound' => 'required|min:0|max:99'
+          ]);
+
+          // Modify to iterate through all the errors
+          if ($validator->fails()) {
+              return response()->json($validator->errors(),400);
+          }
+          
+          $bounds = INRBounds::updateOrCreate(
+              ['UserId'=>$UserId], ['UpperBound'=>$request->UpperBound]
+           );
+          return response()->json($bounds, 201);
+        }
+        
+        return response('Not Logged In',403);
+        
+    }
+  
 }

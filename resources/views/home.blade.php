@@ -27,6 +27,7 @@
 		<script src="{!! asset('js/userdata.js')!!}"></script>
 		<script src="{{mix('js/app.js')}}"></script>
 		<script type="text/javascript" src="{!! asset('js/homeforms.js') !!}"></script>
+		<script type="text/javascript" src="{!! asset('js/updatechart.js') !!}"></script>
 
 		<!--React Elements Div -->
 		<div id="reacthome"></div>
@@ -36,52 +37,7 @@
 
 		<!-- Bootstrapped Forms -->
 	</div>
-	<div class="container">
-		<div class="row">
-			<div class="col-md-5 col-md-offset-0">
-				<div class="panel panel-default">
-					<div class="panel-body">
-						<div class="col-md-5 col-md-offset-0">
-							<h3>
-								INR Reading
-							</h3>
-							<form id="reading-form" action="{{ route('readings')}}" method="POST">
-								{{csrf_field()}} Reading
-								<br>
-								<input type="number" name="INR_Reading" id="inr_reading_submit" required min="0" max="99"><br> Date
-								<br>
-								<input type="date" name="Reading_Date" id="inr_date_submit" required min='2017-01-01'><br>
-								<input id="submit" onclick="inrsubmitFunction()" type="button" value="Submit">
-							</form>
-						</div>
-					</div>
-
-				</div>
-			</div>
-			<div class="col-md-5 col-md-offset-0">
-				<div class="panel panel-default">
-					<div class="panel-body">
-						<div class="col-md-5 col-md-offset-0">
-							<h3>
-								Medical Event
-							</h3>
-							<form id="medicalevent-form" action="{{route('medicalevent')}}" method="POST">
-								{{csrf_field()}} Date
-								<br>
-								<input type="date" name="event_date" id="event_date_submit" required min='2017-01-01'><br> Event Type<br>
-								<select name="event_type" id="event_type_submit" required>
-              @foreach($medicalevents as $event)
-              <option value={{$event['Medical_Event_Type']}}>{{$event['Event_Type_Name']}}</option>
-              @endforeach
-            </select><br>
-								<input id="submit" onclick="medicaleventsubmitFunction()" type="button" value="Submit">
-							</form>
-						</div>
-					</div>
-				</div>
-			</div>
-		</div>
-	</div>
+	<!--<input id="submit" onclick="getGraphData()" type="button" value="Get Graph">-->
 	<div class="text-center">
 
 

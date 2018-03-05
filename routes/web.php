@@ -42,9 +42,12 @@ Route::post('readings/delete', array('as' => 'readingsdelete', 'uses' => "INRRea
 //Routes for INRBounds
 Route::get('bounds', 'INRBoundsController@index');
 Route::post('bounds', array('as' => 'bounds', 'uses' => 'INRBoundsController@update'));
+Route::post('bounds/lower', array('as' => 'boundslower', 'uses' => 'INRBoundsController@updateLower'));
+Route::post('bounds/upper', array('as' => 'boundsupper', 'uses' => 'INRBoundsController@updateUpper'));
 
 //Medication Types
 Route::get('medications', 'MedicationTypeController@show');
+Route::post('medications/add', 'MedicationTypeController@store');
 Route::post('medicationdose',array('as' => 'medicationdose', 'uses' => 'MedicationDoseController@store'));
 
 //Medical Event Types
@@ -56,6 +59,7 @@ Route::post('medicalevent/delete',array('as' => 'medicaleventdelete', 'uses' => 
 //Routes for Food Items
 Route::post('food/search', array('as' => 'foodsearch', 'uses' => 'FoodItemController@apiStringSearch'));
 Route::post('food/nutr', array('as' => 'foodnutr', 'uses' => 'FoodItemController@apiFoodNutr'));
+Route::post('food/addeaten', array('as' => 'foodaddeaten', 'uses' => 'FoodEatenController@addEaten'));
 
 // Authentication Routes...
 Auth::routes();

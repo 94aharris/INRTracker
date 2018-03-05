@@ -65,11 +65,12 @@ class INRReadingController extends Controller
         if ($validator->fails()) {
             return response()->json($validator->errors(),400);
         }
+          $newDate = date("Y-m-d", strtotime($request->Reading_Date));
           
           $data = array(
             "UserId" => Auth::user()->id,
             "INR_Reading" => $request->INR_Reading,
-            "Reading_Date" => $request->Reading_Date
+            "Reading_Date" => $newDate
           );
           
           $reading = INRReading::create($data);
